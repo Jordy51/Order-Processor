@@ -1,6 +1,7 @@
 # OrderProcessor APIs
 
 A simple REST API for order processing.
+This API is built using the **NestJS** framework with **TypeScript** and uses **Bull** as an in-memory queue.
 
 ### Prerequisites
 
@@ -29,7 +30,11 @@ A simple REST API for order processing.
 
    `yarn start`
 
-## Endpoints
+## API Documentation
+
+The API documentation is available via Swagger. You can access it at:
+
+[Swagger UI](http://localhost:3000/api)
 
 ### 1. Create a Order
 
@@ -70,5 +75,21 @@ A simple REST API for order processing.
 ```json
 {
   "status": "COMPLETED"
+}
+```
+
+### 3. Get Order Metrics
+
+**GET** `/metrics/orders`
+
+#### Response:
+
+```json
+{
+  "totalCount": 2229,
+  "pendingCount": 0,
+  "processingCount": 1,
+  "completedCount": 2228,
+  "avgProcessingTime": 1.74
 }
 ```
