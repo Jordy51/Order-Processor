@@ -31,6 +31,7 @@ This API is built using the **NestJS** framework with **TypeScript** and uses **
    `yarn start`
 
 ## To run tests
+
 Run
 `yarn test`
 
@@ -97,3 +98,9 @@ The API documentation is available via Swagger(after server startup). You can ac
   "avgProcessingTime": 1.74
 }
 ```
+
+## Possible Improvements
+
+- **Rate Limiting**: Introduce rate limiting.
+- **Caching**: Use Redis to optimize API response times for frequently accessed data like matrices.
+- **Metrics**: Improve matrices capturing with more generalized framework which can we used at multiple place just like aws cloud watch metrics posting works.
