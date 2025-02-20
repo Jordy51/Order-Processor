@@ -30,6 +30,10 @@ This API is built using the **NestJS** framework with **TypeScript** and uses **
 
    `yarn start`
 
+## To run tests
+Run
+`yarn test`
+
 ## API Documentation
 
 The API documentation is available via Swagger(after server startup). You can access it at:
