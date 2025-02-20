@@ -6,7 +6,8 @@ import { Order } from './entities/order.entity';
 import { BullModule } from '@nestjs/bull';
 import { OrderProcessor } from './order.processor';
 import { OrderRepository } from './repositories/order.repository';
-import { MetricsModule } from 'src/metrics/metrics.module';
+import { MetricsModule } from '../metrics/metrics.module';
+import { OrdersController } from './orders.controller';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { MetricsModule } from 'src/metrics/metrics.module';
     }),
     forwardRef(() => MetricsModule),
   ],
-  controllers: [OrderController],
+  controllers: [OrderController, OrdersController],
   providers: [OrderService, OrderProcessor, OrderRepository],
   exports: [OrderService],
 })

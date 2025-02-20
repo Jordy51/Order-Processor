@@ -2,7 +2,7 @@ import { Processor, Process } from '@nestjs/bull';
 import { Job } from 'bull';
 import { OrderService } from './order.service';
 import { OrderStatus } from './entities/order.entity';
-import { MetricsService } from 'src/metrics/metrics.service';
+import { MetricsService } from '../metrics/metrics.service';
 import { forwardRef, Inject } from '@nestjs/common';
 
 @Processor('orders')

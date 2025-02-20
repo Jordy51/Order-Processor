@@ -3,19 +3,13 @@ import { OrderService } from './order.service';
 import { OrderStatus } from './entities/order.entity';
 import { OrderRepository } from './repositories/order.repository';
 import { Queue } from 'bull';
-// import { ProcessingTimeRepository } from 'src/metrics/repositories/processing-time.repository';
 
 describe('OrderService', () => {
   let service: OrderService;
   let orderRepository: Partial<OrderRepository>;
-  // let processingTimeRepository: Partial<ProcessingTimeRepository>;
   let ordersQueue: Partial<Queue>;
 
   beforeEach(async () => {
-    // orderProcessor = {
-    //   handleOrderProcessing: jest.fn().mockImplementation(() => {}),
-    // };
-    // processingTimeRepository = {};
     orderRepository = {
       createAndSave: jest.fn().mockImplementation((orderData) =>
         Promise.resolve({

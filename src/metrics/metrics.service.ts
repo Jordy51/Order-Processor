@@ -1,6 +1,6 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { ProcessingTimeRepository } from './repositories/processing-time.repository';
-import { OrderService } from 'src/orders/order.service';
+import { OrderService } from '../orders/order.service';
 
 @Injectable()
 export class MetricsService {

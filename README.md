@@ -7,7 +7,7 @@ This API is built using the **NestJS** framework with **TypeScript** and uses **
 
 - Node.js installed
 - Yarn package manager
-- Database SQlite
+- Database SQLite
 - Redis
 
 ## Installation Steps
@@ -32,7 +32,7 @@ This API is built using the **NestJS** framework with **TypeScript** and uses **
 
 ## API Documentation
 
-The API documentation is available via Swagger. You can access it at:
+The API documentation is available via Swagger(after server startup). You can access it at:
 
 [Swagger UI](http://localhost:3000/api)
 
