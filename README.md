@@ -99,6 +99,13 @@ The API documentation is available via Swagger(after server startup). You can ac
 }
 ```
 
+## Load Testing
+
+You can perform load testing using **k6** with the provided `loadTest.js` script.
+
+Run
+`k6 run loadTest.js`
+
 ## Possible Improvements
 
 - **Rate Limiting**: Introduce rate limiting.
