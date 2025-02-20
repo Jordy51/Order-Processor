@@ -13,7 +13,6 @@ export class OrderProcessor {
     private readonly ordersService: OrderService,
     @Inject(forwardRef(() => MetricsService))
     private readonly metricService: MetricsService,
-    // private readonly processingTimeRepository: ProcessingTimeRepository,
   ) {}
 
   @Process({ concurrency: 50 })

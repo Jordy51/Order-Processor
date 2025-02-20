@@ -4,7 +4,7 @@ import { MetricsService } from './metrics.service';
 export class MetricsController {
   constructor(private readonly metricsService: MetricsService) {}
 
-  @Get('')
+  @Get('/orders')
   processingCount() {
     return this.metricsService.metricData();
   }
