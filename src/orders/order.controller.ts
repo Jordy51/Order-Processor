@@ -15,4 +15,9 @@ export class OrderController {
   findOne(@Param('id') id: string) {
     return this.orderService.findOne(id);
   }
+
+  @Get()
+  processingCount() {
+    return this.orderService.processingCount();
+  }
 }

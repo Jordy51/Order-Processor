@@ -16,7 +16,7 @@ export class OrderProcessor {
       this.minDelay;
 
     const orderId = job.data.orderId;
-
+    console.log({ orderId });
     await this.ordersService.updateStatus({
       orderId: orderId,
       status: OrderStatus.PROCESSING,

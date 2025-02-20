@@ -19,15 +19,21 @@ export class OrderService {
       status: OrderStatus.PENDING,
     });
 
-    await this.ordersQueue.add({
-      orderId: savedOrder.orderId,
-    });
+    this.ordersQueue
+      .add({
+        orderId: savedOrder.orderId,
+      })
+      .catch((e) => console.log(e));
     return savedOrder;
   }
 
   async findOne(orderId: string): Promise<{ status: OrderStatus | null }> {
     const order = await this.orderRepository.getOrderById(orderId);
     return { status: order ? order.status : null };
+  }
+
+  async processingCount() {
+    return this.ordersQueue.getJobCounts();
   }
 
   async updateStatus(updateOrderDto: UpdateOrderDto) {
