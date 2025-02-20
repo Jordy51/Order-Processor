@@ -13,7 +13,7 @@ export class OrderProcessor {
     private readonly processingTimeRepository: ProcessingTimeRepository,
   ) {}
 
-  @Process({ concurrency: 20 })
+  @Process({ concurrency: 50 })
   async handleOrderProcessing(job: Job<{ orderId: string }>) {
     const processingDelay =
       Math.floor(Math.random() * (this.maxDelay - this.minDelay + 1)) +
