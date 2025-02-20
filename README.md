@@ -106,6 +106,8 @@ You can perform load testing using **k6** with the provided `loadTest.js` script
 Run
 `k6 run loadTest.js`
 
+![Sample LoadTest](https://i.postimg.cc/dVBX1XZR/IMG-20250220-WA0003.jpg)
+
 ## Possible Improvements
 
 - **Rate Limiting**: Introduce rate limiting.
