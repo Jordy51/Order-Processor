@@ -29,8 +29,4 @@ export class OrderRepository extends Repository<Order> {
   async countOrdersByStatus(status: OrderStatus): Promise<number> {
     return this.count({ where: { status } });
   }
-
-  // async countTotalOrders(): Promise<number> {
-  //   return this.count({ where: {} });
-  // }
 }

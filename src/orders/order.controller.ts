@@ -15,9 +15,4 @@ export class OrderController {
   findOne(@Param('orderId') orderId: string) {
     return this.orderService.getStatus(orderId);
   }
-
-  @Get('/metrics')
-  processingCount() {
-    return this.orderService.processingCount();
-  }
 }

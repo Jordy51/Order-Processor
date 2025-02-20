@@ -5,6 +5,7 @@ import { OrderModule } from './orders/order.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BullModule } from '@nestjs/bull';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MetricsModule } from './metrics/metrics.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -30,6 +31,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       synchronize: true,
     }),
     OrderModule,
+    MetricsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

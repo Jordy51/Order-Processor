@@ -10,10 +10,4 @@ export class ProcessingTime {
 
   @Column()
   precessingTime: number;
-
-  //   @CreateDateColumn({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
-  //   createdAt: Date;
-
-  //   @UpdateDateColumn({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
-  //   updatedAt: Date;
 }

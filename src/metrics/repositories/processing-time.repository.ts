@@ -16,7 +16,6 @@ export class ProcessingTimeRepository extends Repository<ProcessingTime> {
     const sum = await this.createQueryBuilder('pt')
       .select(`SUM(pt.${field})`, 'sum')
       .getRawOne<{ sum: string }>();
-    // console.log({ sum });
     if (sum) {
       return Number(sum.sum) || 0;
     } else return 0;

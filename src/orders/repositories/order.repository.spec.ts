@@ -12,7 +12,6 @@ const mockOrder: Order = {
 
 describe('OrderRepository', () => {
   let orderRepository: OrderRepository;
-  let dataSource: DataSource;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -32,7 +31,6 @@ describe('OrderRepository', () => {
     }).compile();
 
     orderRepository = module.get<OrderRepository>(OrderRepository);
-    dataSource = module.get<DataSource>(DataSource);
   });
 
   it('should create and save an order', async () => {
@@ -46,8 +44,8 @@ describe('OrderRepository', () => {
   });
 
   it('should update order status', async () => {
-    const updatedOrder = { ...mockOrder, status: OrderStatus.COMPLETED };
-    jest.spyOn(orderRepository, 'save').mockResolvedValue(updatedOrder);
+    // const updatedOrder = { ...mockOrder, status: OrderStatus.COMPLETED };
+    // jest.spyOn(orderRepository, 'save').mockResolvedValue(updatedOrder);
 
     const result = await orderRepository.updateStatus(
       '123',

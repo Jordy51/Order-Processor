@@ -2,7 +2,8 @@ import { Processor, Process } from '@nestjs/bull';
 import { Job } from 'bull';
 import { OrderService } from './order.service';
 import { OrderStatus } from './entities/order.entity';
-import { ProcessingTimeRepository } from './repositories/processingtime.repository';
+import { MetricsService } from 'src/metrics/metrics.service';
+import { forwardRef, Inject } from '@nestjs/common';
 
 @Processor('orders')
 export class OrderProcessor {
@@ -10,7 +11,9 @@ export class OrderProcessor {
   private maxDelay = 3000;
   constructor(
     private readonly ordersService: OrderService,
-    private readonly processingTimeRepository: ProcessingTimeRepository,
+    @Inject(forwardRef(() => MetricsService))
+    private readonly metricService: MetricsService,
+    // private readonly processingTimeRepository: ProcessingTimeRepository,
   ) {}
 
   @Process({ concurrency: 50 })
@@ -27,11 +30,7 @@ export class OrderProcessor {
 
     // Simulate order processing delay
     await new Promise((resolve) => setTimeout(resolve, processingDelay));
-
-    await this.processingTimeRepository.createAndSave({
-      orderId: orderId,
-      precessingTime: processingDelay,
-    });
+    await this.metricService.create(orderId, processingDelay);
     await this.ordersService.updateStatus({
       orderId: orderId,
       status: OrderStatus.COMPLETED,
