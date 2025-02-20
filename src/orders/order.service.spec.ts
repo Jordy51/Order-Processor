@@ -3,7 +3,6 @@ import { OrderService } from './order.service';
 import { OrderStatus } from './entities/order.entity';
 import { OrderRepository } from './repositories/order.repository';
 import { Queue } from 'bull';
-// import { OrderProcessor } from './order.processor';
 
 describe('OrderService', () => {
   let service: OrderService;

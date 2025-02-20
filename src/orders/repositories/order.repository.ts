@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DataSource, Repository, Between } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { Order, OrderStatus } from '../entities/order.entity';
 
 @Injectable()
@@ -26,23 +26,11 @@ export class OrderRepository extends Repository<Order> {
     return this.save(order);
   }
 
-  async countOrdersByStatus(
-    status: OrderStatus,
-    dateFilter?: { start: Date; end: Date },
-  ): Promise<number> {
-    const whereClause = dateFilter
-      ? { status, createdAt: Between(dateFilter.start, dateFilter.end) }
-      : { status };
-    return await this.count({ where: whereClause });
+  async countOrdersByStatus(status: OrderStatus): Promise<number> {
+    return this.count({ where: { status } });
   }
 
-  async countTotalOrders(dateFilter?: {
-    start: Date;
-    end: Date;
-  }): Promise<number> {
-    const whereClause = dateFilter
-      ? { createdAt: Between(dateFilter.start, dateFilter.end) }
-      : {};
-    return await this.count({ where: whereClause });
-  }
+  // async countTotalOrders(): Promise<number> {
+  //   return this.count({ where: {} });
+  // }
 }

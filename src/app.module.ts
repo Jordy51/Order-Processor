@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { OrderModule } from './orders/order.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BullModule } from '@nestjs/bull';
-
 @Module({
   imports: [
     BullModule.forRoot({

@@ -11,12 +11,12 @@ export class OrderController {
     return this.orderService.create(createOrderDto);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.orderService.findOne(id);
+  @Get(':orderId/status')
+  findOne(@Param('orderId') orderId: string) {
+    return this.orderService.getStatus(orderId);
   }
 
-  @Get()
+  @Get('/metrics')
   processingCount() {
     return this.orderService.processingCount();
   }
